@@ -1,0 +1,17 @@
+base.yml
+db/*.sqlite3
+log/*.log
+tmp/
+
+# foreman configuration
+.env
+
+# local console config
+.irbrc
+
+# ignore osx's ._ files
+._*
+
+# Ignore application configuration
+/config/application.yml
+dump.rdb
