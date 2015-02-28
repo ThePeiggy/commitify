@@ -6,7 +6,6 @@ class CreateCommitments < ActiveRecord::Migration
       t.datetime :expiry_date
       t.string :status
       t.float :cost
-      t.references :user
 
       t.timestamps
     end

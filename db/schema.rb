@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228173736) do
+ActiveRecord::Schema.define(version: 20150228204002) do
 
   create_table "commitments", force: true do |t|
     t.string   "title"
@@ -19,10 +19,21 @@ ActiveRecord::Schema.define(version: 20150228173736) do
     t.datetime "expiry_date"
     t.string   "status"
     t.float    "cost"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sponsorships", force: true do |t|
+    t.float    "cost"
+    t.integer  "user_id"
+    t.integer  "commitment_id"
+    t.string   "sponsorship_type", default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sponsorships", ["commitment_id"], name: "index_sponsorships_on_commitment_id"
+  add_index "sponsorships", ["user_id"], name: "index_sponsorships_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                   null: false
