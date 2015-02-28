@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228060433) do
+ActiveRecord::Schema.define(version: 20150228173736) do
+
+  create_table "commitments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "expiry_date"
+    t.string   "status"
+    t.float    "cost"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
-    t.string   "email",      null: false
+    t.string   "email",                   null: false
+    t.string   "first_name", default: ""
+    t.string   "last_name",  default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,7 +1,9 @@
 Myapp::Application.routes.draw do
-  root to: 'users#index'
+  root to: 'home#index'
   get 'auth/facebook', as: "auth_provider"
   get 'auth/facebook/callback', to: 'sessions#create'
+
+  resources :users, only: [:show, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
