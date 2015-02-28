@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  expiry_date: 2015-02-28 09:37:36
+  status: MyString
+  cost: 1.5
+
+two:
+  title: MyString
+  description: MyText
+  expiry_date: 2015-02-28 09:37:36
+  status: MyString
+  cost: 1.5

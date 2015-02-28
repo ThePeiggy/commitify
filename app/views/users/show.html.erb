@@ -1,0 +1,48 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+    <div class="row top-align">
+      <strong><div class = "names"><%= @user.first_name + ' ' + @user.last_name %> </div></strong>
+      <div class = "userpage">
+        <strong>Registered Email:</strong>
+        <%= @user.email %><br>
+        <br>
+        <%= link_to "Back", '#', class: 'btn btn-large btn-primary' %>
+        <%= link_to "New Commitment", '#', class: 'btn btn-large btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @user.commitments.each do |commitment| %>
+  <div class="jumbotron">
+    <div class="container-fluid">
+      <div class="col-md-5">
+        <div class="row top-align">
+            <h3><%= commitment.name %></h3>
+        </div>
+        <br>
+        <div class="row top-align">
+          <%= commitment.description %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="row top-align">
+          <div class="causeimage">
+            <%= "placeholder" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="row">
+          Expiry Date: <%= commitment.expiry_date.strftime("%b %d, %Y") %>
+        </div>
+        <div class="row">
+          Status: <%= commitment.status %>
+        </div>
+        <div class="row">
+          Cost: $<%= '%.2f' % commitment.unit_donation %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
