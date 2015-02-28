@@ -1,10 +1,8 @@
 Myapp::Application.routes.draw do
-  get "home/index"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  root to: 'users#index'
+  get 'auth/facebook', as: "auth_provider"
+  get 'auth/facebook/callback', to: 'users#login'
 
-  # You can have the root of your site routed with "root"
-root to: 'home#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
