@@ -5,6 +5,8 @@ Myapp::Application.routes.draw do
 
   resources :users, only: [:show, :index]
 
+  get 'denied', to: 'home#denied'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

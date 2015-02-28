@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-    "Hello!"
+  end
+
+  def denied
   end
 end
