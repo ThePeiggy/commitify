@@ -1,19 +1,4 @@
-<div class="jumbotron">
-  <div class="container-fluid">
-    <div class="row top-align">
-      <strong><div class = "names"><%= @user.first_name + ' ' + @user.last_name %> </div></strong>
-      <div class = "userpage">
-        <strong>Registered Email:</strong>
-        <%= @user.email %><br>
-        <br>
-        <%= link_to "Back", '#', class: 'btn btn-large btn-primary' %>
-        <%= link_to "New Commitment", new_commitment_path, class: 'btn btn-large btn-primary' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% @user.commitments.owned.each do |commitment| %>
+<% @commitments.each do |commitment| %>
   <div class="jumbotron">
     <div class="container-fluid">
       <div class="col-md-8">
