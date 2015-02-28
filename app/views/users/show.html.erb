@@ -13,12 +13,12 @@
   </div>
 </div>
 
-<% @user.commitments.each do |commitment| %>
+<% @user.commitments.owned.each do |commitment| %>
   <div class="jumbotron">
     <div class="container-fluid">
       <div class="col-md-5">
         <div class="row top-align">
-            <h3><%= commitment.name %></h3>
+            <h3><%= commitment.title %></h3>
         </div>
         <br>
         <div class="row top-align">
@@ -40,7 +40,7 @@
           Status: <%= commitment.status %>
         </div>
         <div class="row">
-          Cost: $<%= '%.2f' % commitment.unit_donation %>
+          Cost: $<%= '%.2f' % commitment.cost %>
         </div>
       </div>
     </div>
