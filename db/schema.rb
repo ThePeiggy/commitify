@@ -19,15 +19,16 @@ ActiveRecord::Schema.define(version: 20150301005945) do
     t.datetime "expiry_date"
     t.string   "status"
     t.float    "cost"
+    t.string   "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sponsorships", force: true do |t|
-    t.float    "cost"
+    t.float    "cost",             default: 0.0, null: false
     t.integer  "user_id"
     t.integer  "commitment_id"
-    t.string   "sponsorship_type", default: "", null: false
+    t.string   "sponsorship_type", default: "",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150301005945) do
     t.string   "email",                   null: false
     t.string   "first_name", default: ""
     t.string   "last_name",  default: ""
+    t.string   "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

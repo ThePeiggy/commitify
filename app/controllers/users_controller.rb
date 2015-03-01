@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       return
     end
 
+    @exchange_rate_usd = coinbase.exchange_rates["btc_to_usd"].to_f
     @user = User.find(params[:id])
   end
 end

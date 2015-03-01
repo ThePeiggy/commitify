@@ -33,6 +33,8 @@ gem 'koala', '~> 1.11.0rc'
 
 gem 'pry'
 
+gem 'coinbase'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

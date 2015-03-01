@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def coinbase
+    @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'])
+  end
+
+  def cb_bank
+    @cb_bank ||= cb_bank = Money::Bank::Coinbase.new.fetch
+  end
 end
