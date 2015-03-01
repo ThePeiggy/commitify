@@ -15,4 +15,5 @@ tmp/
 # Ignore application configuration
 /config/application.yml
 /config/facebook.yml
+/config/coinbase.yml
 dump.rdb
