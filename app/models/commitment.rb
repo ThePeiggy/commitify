@@ -11,6 +11,10 @@ class Commitment < ActiveRecord::Base
   end
 
   def sponsor_count
-    users.where("sponsorships.sponsorship_type = ?", Sponsorship::SPONSORSHIP).count
+    sponsorships.where(sponsorship_type: Sponsorship::SPONSORSHIP).count
+  end
+
+  def cost_sponsored
+    sponsorships.where(sponsorship_type: Sponsorship::SPONSORSHIP).sum :cost
   end
 end

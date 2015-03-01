@@ -25,7 +25,7 @@
           Sponsors: <%= commitment.sponsor_count %>
         </div>
         <div class="row" id="money_raised_<%= commitment.id %>">
-          Raised: <%= "TBD" %>
+          Amount Sponsored: $<%= '%.2f' % commitment.cost_sponsored %>
         </div>
         <br>
         <div class="row">
@@ -50,7 +50,7 @@
               success: function(data) {
                 if (data.success) {
                   document.getElementById(sponsors_id).innerHTML = "Sponsors: " + data.sponsors
-                  document.getElementById(raised_id).innerHTML = "Raised: $"// + data.money_raised.toFixed(2)
+                  document.getElementById(raised_id).innerHTML = "Raised: $" + data.cost_sponsored.toFixed(2)
                   document.getElementById(button_id).innerHTML = "Thanks!"
                   document.getElementById(button_id).disabled = true
                 } else {
