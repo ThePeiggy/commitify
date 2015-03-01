@@ -11,7 +11,10 @@ Myapp::Application.routes.draw do
 
   resources :commitments, only: [:new, :create, :index] do
     get :sponsor, on: :member
+    get :fulfill, on: :member
   end
+
+  resources :fulfillments, only: [:edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commitment_id: 
+  description: MyText
+  title: MyString
+  approved: false
+
+two:
+  commitment_id: 
+  description: MyText
+  title: MyString
+  approved: false

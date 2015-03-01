@@ -1,5 +1,6 @@
 class Commitment < ActiveRecord::Base
   has_many :sponsorships
+  has_one :fulfillment
   has_many :users, through: :sponsorships do
     def owner
       where("sponsorships.sponsorship_type = ?", Sponsorship::OWNERSHIP).first

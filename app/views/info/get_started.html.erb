@@ -6,7 +6,7 @@
         <br>
         <p class="text-center">Create a <%= link_to "commitment", new_commitment_path %></p>
         <p class="text-center"><%= link_to "Sponsor", commitments_path %> and get sponsored</p>
-        <p class="text-center">Fulfill your commitments</p>
+        <p class="text-center"><%= link_to "Fulfill", user_path(current_user) %> your commitments</p>
         <p class="text-center">Profit!</p>
       </div>
     </div>
