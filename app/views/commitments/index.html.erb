@@ -35,10 +35,12 @@
           Cost of Sponsorship: $<%= '%.2f' % (0.001 * @exchange_rate_usd) %>
         </div>
         <br>
-        <div class="row">
-          <% cid = commitment.id.to_s %>
-          <%= link_to "Sponsor", '#', remote: true, class: 'btn btn-large btn-success', id: "button_" + cid, path: sponsor_commitment_path(commitment), sponsors_id: "num_sponsors_" + cid, raised_id: "money_raised_" + cid, button_id: "button_" + cid, title: "Support with a sponsorship. If this commitment is not fulfilled, your donation is returned, and the owner of this commitment will donate to charity.", data: { toggle: 'tooltip', placement: 'right'} %>
-        </div>
+        <% if commitment.status == Commitment::PENDING %>
+          <div class="row">
+            <% cid = commitment.id.to_s %>
+            <%= link_to "Sponsor", '#', remote: true, class: 'btn btn-large btn-success', id: "button_" + cid, path: sponsor_commitment_path(commitment), sponsors_id: "num_sponsors_" + cid, raised_id: "money_raised_" + cid, button_id: "button_" + cid, title: "Support with a sponsorship. If this commitment is not fulfilled, your donation is returned, and the owner of this commitment will donate to charity.", data: { toggle: 'tooltip', placement: 'right'} %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

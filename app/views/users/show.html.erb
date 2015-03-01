@@ -59,7 +59,7 @@
         <br>
         <% if commitment.status == Commitment::READY %>
           <div class="row">
-            <%= link_to "Fulfill", '#', class: 'btn btn-large btn-success', title: "Fulfill your commitment and provide proof", data: { toggle: 'tooltip', placement: 'right'} %>
+            <%= link_to "Fulfill", fulfill_commitment_path(commitment), class: 'btn btn-large btn-success', title: "Fulfill your commitment and provide proof", data: { toggle: 'tooltip', placement: 'right'} %>
           </div>
         <% end %>
       </div>

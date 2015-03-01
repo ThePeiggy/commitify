@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301005945) do
+ActiveRecord::Schema.define(version: 20150301192322) do
 
   create_table "commitments", force: true do |t|
     t.string   "title"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20150301005945) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "fulfillments", force: true do |t|
+    t.integer  "commitment_id"
+    t.text     "description"
+    t.string   "title"
+    t.boolean  "approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fulfillments", ["commitment_id"], name: "index_fulfillments_on_commitment_id"
 
   create_table "sponsorships", force: true do |t|
     t.float    "cost",             default: 0.0, null: false

@@ -48,6 +48,13 @@ class CommitmentsController < ApplicationController
     respond_with success: true, sponsors: commitment.sponsor_count, cost_sponsored: commitment.cost_sponsored
   end
 
+  def fulfill
+    @commitment = Commitment.find(commitment_id_param)
+    @fulfillment = Fulfillment.find_by_commitment_id(commitment_id_param)
+    @fulfillment = @commitment.build_fulfillment(title: @commitment.title).save if @fulfillment.nil?
+
+    redirect_to edit_fulfillment_path(@fulfillment)
+  end
 
 
   private

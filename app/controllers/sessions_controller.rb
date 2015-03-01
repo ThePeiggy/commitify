@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     end
     session[:user_id] = @user.id
 
-    #transer some funds
+    #transer some funds, not needed for sandbox
     coinbase.send_money @user.account_id, 0.001, "This is a gift to help you get started.", account_id: '54f281d49eefe86a84000003'
     redirect_to get_started_path
   end

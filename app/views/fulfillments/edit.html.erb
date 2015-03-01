@@ -1,0 +1,18 @@
+<h1> Editing Fulfillment </h1>
+<div class="center" margin-top="100px">
+  <%= form_for @fulfillment, url: {action: "update"} do |f| %>
+    <h3><%= @fulfillment.title %></h3>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, :cols => "70", :rows => "10", :maxlength=>"750", placeholder: 'Convince sponsors with proof that you fulfilled your commitment.' %><br>
+      <i>Max 750 characters</i>
+    </p>
+
+    <p>
+      <%= f.submit "Submit", class: "btn btn-lg btn-success" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Cancel', user_path(current_user) %>
+</div>
