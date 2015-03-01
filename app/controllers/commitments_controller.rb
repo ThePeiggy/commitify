@@ -11,6 +11,9 @@ class CommitmentsController < ApplicationController
 
     respond_to do |format|
       if @commitment.save
+        options = { account: { name: "commitment_" + @commitment.id.to_s } }
+        response = coinbase.post('/accounts', options)
+        @commitment.update_attributes(account_id: response["account"]["id"])
         current_user.sponsorships.create(commitment_id: @commitment.id, sponsorship_type: Sponsorship::OWNERSHIP)
         format.html { redirect_to current_user, notice: 'Commitment was successfully created.' }
       else
