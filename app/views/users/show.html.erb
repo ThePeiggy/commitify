@@ -5,6 +5,8 @@
         <h3><%= @user.first_name + ' ' + @user.last_name %></h3>
         <strong>Registered Email: </strong><%= @user.email %>
         <br>
+        <strong>Balance: </strong>$<%= '%.2f' % (@balance * @exchange_rate_usd)  %>
+        <br>
         <strong data-toggle="tooltip" title="Use this to transfer bitcoins from your Coinbase Wallet">Coinbase Account ID: </strong><%= @user.account_id %>
         <br>
         <br>
@@ -54,6 +56,12 @@
         <div class="row" title="The amount required to sponsor this commitment" data-toggle="tooltip" data-placement="left">
           Cost of Sponsorship: $<%= '%.2f' % (0.001 * @exchange_rate_usd) %>
         </div>
+        <br>
+        <% if commitment.status == Commitment::READY %>
+          <div class="row">
+            <%= link_to "Fulfill", '#', class: 'btn btn-large btn-success', title: "Fulfill your commitment and provide proof", data: { toggle: 'tooltip', placement: 'right'} %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

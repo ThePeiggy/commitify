@@ -11,7 +11,6 @@
 
   .header-text {
     text-align: center;
-    color: black;
     position: absolute;
     top: 50%;
     width: 100%;
@@ -21,11 +20,13 @@
     font-family: 'Stalemate', cursive;
     font-size: 144px;
     font-weight: bold;
+    color: black;
   }
 
   .description {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24px;
-    font-family: 'Fjord One', serif;
+    color: #222;
   }
 
   .header {
