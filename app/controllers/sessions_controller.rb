@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       options = { account: { name: facebook_user["email"] } }
       response = coinbase.post('/accounts', options)
       @user = User.create(email: facebook_user["email"], first_name: facebook_user["first_name"], last_name: facebook_user["last_name"], account_id: response["account"]["id"])
-      binding.pry
     end
     session[:user_id] = @user.id
     redirect_to user_path(@user.id)
