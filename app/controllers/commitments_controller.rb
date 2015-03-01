@@ -7,12 +7,13 @@ class CommitmentsController < ApplicationController
 
   def create
     @commitment = Commitment.new(commitment_params)
+    binding.pry
 
     respond_to do |format|
       if @commitment.save
         options = { account: { name: "commitment_" + @commitment.id.to_s } }
         response = coinbase.post('/accounts', options)
-        @commitment.update_attributes(account_id: response["account"]["id"], status: Commitment::PENDING)
+        @commitment.update_attributes(account_id: response["account"]["id"], status: Commitment::PENDING, beneficiary_id: @commitment.beneficiary == Commitment::USERS ? nil : "529653a1ce21cd9e53000076")
 
         current_user.sponsorships.create(commitment_id: @commitment.id, sponsorship_type: Sponsorship::OWNERSHIP)
         #take collateral
@@ -57,6 +58,6 @@ class CommitmentsController < ApplicationController
   end
 
   def commitment_params
-    params.require(:commitment).permit(:title, :description, :cost)
+    params.require(:commitment).permit(:title, :description, :cost, :beneficiary)
   end
 end

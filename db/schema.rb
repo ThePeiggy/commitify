@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20150301005945) do
     t.string   "status"
     t.float    "cost"
     t.string   "account_id"
+    t.string   "beneficiary"
+    t.string   "beneficiary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

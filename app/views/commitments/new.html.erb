@@ -13,6 +13,11 @@
     </p>
 
     <p>
+      <%= f.label :beneficiary, title: "The bitcoins earned could be kept or given to another account.", data: { toggle: 'tooltip', placement: 'left'} %><br>
+      <%= f.select :beneficiary, options_for_select([Commitment::USERS, Commitment::CHARITY]), placeholder: Commitment::USERS %><br>
+    </p>
+
+    <p>
       <%= f.label :description %><br>
       <%= f.text_area :description, :cols => "70", :rows => "10", :maxlength=>"750", placeholder: 'Convince people to sponsor you. Once you are fully sponsored, you must fulfill your commitment and provide proof, or you will lose your collateral!' %><br>
       <i>Max 750 characters</i>

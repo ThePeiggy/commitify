@@ -15,6 +15,9 @@ class Commitment < ActiveRecord::Base
   FULFILLED = 'fulfilled'.freeze
   FAILED = 'failed'.freeze
 
+  CHARITY = 'charity'.freeze
+  USERS = 'users'.freeze
+
 
   def sponsor_count
     sponsorships.where(sponsorship_type: Sponsorship::SPONSORSHIP).count
