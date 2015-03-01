@@ -4,18 +4,18 @@
 
     <p>
       <%= f.label :title %><br>
-      <%= f.text_field :title, placeholder: "Example Title" %>
+      <%= f.text_field :title, placeholder: "No Junk Food" %>
     </p>
 
     <p>
-      <%= f.label :cost %><br>
-      <%= f.text_field :cost, placeholder: '10.00' %><br>
+      <%= f.label :cost, title: "The amount of bitcoins you want to put up as collateral, and have the potential of earning from your sponsors.", data: { toggle: 'tooltip', placement: 'left'} %><br>
+      <%= f.text_field :cost, placeholder: 'Amount in bitcoins' %><br>
     </p>
 
     <p>
       <%= f.label :description %><br>
-      <%= f.text_area :description, :cols => "70", :rows => "10", :maxlength=>"750", placeholder: 'Write an intro for more donations' %><br>
-      <i>  Max 750 characters</i>
+      <%= f.text_area :description, :cols => "70", :rows => "10", :maxlength=>"750", placeholder: 'Convince people to sponsor you. Once you are fully sponsored, you must fulfill your commitment and provide proof, or you will lose your collateral!' %><br>
+      <i>Max 750 characters</i>
     </p>
 
     <p>

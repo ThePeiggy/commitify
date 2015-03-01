@@ -1,5 +1,5 @@
 Myapp::Application.routes.draw do
-  root to: 'home#index'
+  root to: 'home#landing'
   get 'auth/facebook', as: "auth_provider"
   get 'auth/facebook/callback', to: 'sessions#create'
 

@@ -10,6 +10,12 @@ class Commitment < ActiveRecord::Base
     end
   end
 
+  PENDING = 'pending'.freeze
+  READY = 'ready'.freeze
+  FULFILLED = 'fulfilled'.freeze
+  FAILED = 'failed'.freeze
+
+
   def sponsor_count
     sponsorships.where(sponsorship_type: Sponsorship::SPONSORSHIP).count
   end
