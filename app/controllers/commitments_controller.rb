@@ -27,7 +27,11 @@ class CommitmentsController < ApplicationController
   end
 
   def sponsor
-    respond_with success: true
+    #create sponsorship
+    #respond with number of sponsors
+    commitment = Commitment.find(commitment_id_param)
+    sponsorship = commitment.sponsorships.create(cost: 0.1, user_id: current_user.id, sponsorship_type: Sponsorship::SPONSORSHIP)
+    respond_with success: true, sponsors: commitment.sponsor_count
     /
     commitment = Commitment.find(commitment_id_param)
     if true

@@ -9,4 +9,8 @@ class Commitment < ActiveRecord::Base
       where("sponsorships.sponsorship_type = ?", Sponsorship::SPONSORSHIP)
     end
   end
+
+  def sponsor_count
+    users.where("sponsorships.sponsorship_type = ?", Sponsorship::SPONSORSHIP).count
+  end
 end
