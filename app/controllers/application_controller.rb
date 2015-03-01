@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def coinbase
     @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'])
   end
+
+  def cb_bank
+    @cb_bank ||= cb_bank = Money::Bank::Coinbase.new.fetch
+  end
 end

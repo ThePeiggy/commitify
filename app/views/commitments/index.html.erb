@@ -25,7 +25,10 @@
           Sponsors: <%= commitment.sponsor_count %>
         </div>
         <div class="row" id="money_raised_<%= commitment.id %>">
-          Amount Sponsored: $<%= '%.2f' % commitment.cost_sponsored %>
+          Amount Sponsored: $<%= '%.2f' % (commitment.cost_sponsored * @exchange_rate_usd) %>
+        </div>
+        <div class="row">
+          Cost of Sponsorship: $<%= '%.2f' % (0.001 * @exchange_rate_usd) %>
         </div>
         <br>
         <div class="row">

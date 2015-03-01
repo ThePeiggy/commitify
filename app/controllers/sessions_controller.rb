@@ -11,6 +11,9 @@ class SessionsController < ApplicationController
       @user = User.create(email: facebook_user["email"], first_name: facebook_user["first_name"], last_name: facebook_user["last_name"], account_id: response["account"]["id"])
     end
     session[:user_id] = @user.id
+
+    #transer some funds
+    coinbase.send_money @user.account_id, 0.001, "This is a gift to help you get started.", account_id: '54f281d49eefe86a84000003'
     redirect_to user_path(@user.id)
   end
 end

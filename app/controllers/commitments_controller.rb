@@ -25,16 +25,27 @@ class CommitmentsController < ApplicationController
 
   def index
     @commitments = Commitment.all
-    #binding.pry
+    @exchange_rate_usd = coinbase.exchange_rates["btc_to_usd"].to_f
   end
 
   def sponsor
     #create sponsorship
     #respond with number of sponsors
     commitment = Commitment.find(commitment_id_param)
-    sponsorship = commitment.sponsorships.create(cost: 0.1, user_id: current_user.id, sponsorship_type: Sponsorship::SPONSORSHIP)
+    sponsorship = commitment.sponsorships.create(cost: 0.001, user_id: current_user.id, sponsorship_type: Sponsorship::SPONSORSHIP)
+    if sponsorship.id.nil?
+      respond_with success: false
+      return
+    end
+
+    #set up transfer
+    coinbase.send_money commitment.account_id, 0.001, "This is your collateral.", account_id: commitment.users.owner.account_id
+    coinbase.send_money commitment.account_id, 0.001, "This is your sponsorship.", account_id: current_user.account_id
+
     respond_with success: true, sponsors: commitment.sponsor_count, cost_sponsored: commitment.cost_sponsored
   end
+
+
 
   private
 
