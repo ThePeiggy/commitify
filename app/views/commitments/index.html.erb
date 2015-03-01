@@ -12,6 +12,9 @@
         </div>
       </div>
       <div class="col-md-4">
+        <div class="row" title="The bitcoins earned could be kept or given to another account." data-toggle="tooltip" data-placement="left">
+          Beneficiary: <%= commitment.beneficiary %>
+        </div>
         <div class="row" title="Commitments must be fulfilled by this date" data-toggle="tooltip" data-placement="left">
           Expiry Date: <%= commitment.expiry_date ? commitment.expiry_date.strftime("%b %d, %Y") : 'N/A' %>
         </div>

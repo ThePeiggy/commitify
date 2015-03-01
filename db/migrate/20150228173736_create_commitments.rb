@@ -7,6 +7,8 @@ class CreateCommitments < ActiveRecord::Migration
       t.string :status
       t.float :cost
       t.string :account_id, unique: true
+      t.string :beneficiary
+      t.string :beneficiary_id
 
       t.timestamps
     end
