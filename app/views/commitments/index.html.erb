@@ -13,13 +13,13 @@
       </div>
       <div class="col-md-4">
         <div class="row" title="Commitments must be fulfilled by this date" data-toggle="tooltip" data-placement="left">
-          Expiry Date: <%= commitment.expiry_date.strftime("%b %d, %Y") %>
+          Expiry Date: <%= commitment.expiry_date ? commitment.expiry_date.strftime("%b %d, %Y") : 'N/A' %>
         </div>
         <div class="row" title="Pending, Ready, Fulfilled, or Failed" data-toggle="tooltip" data-placement="left">
           Status: <%= commitment.status %>
         </div>
         <div class="row" title="Once this amount is reached, the owner must fulfill the commitment or pay with bitcoins" data-toggle="tooltip" data-placement="left">
-          Cost: $<%= '%.2f' % commitment.cost %>
+          Cost: $<%= '%.2f' % (commitment.cost * @exchange_rate_usd) %>
         </div>
         <br>
         <div class="row" id="num_sponsors_<%= commitment.id %>" title="The number of people sponsoring this commitment" data-toggle="tooltip" data-placement="left">
