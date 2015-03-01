@@ -7,6 +7,8 @@ Myapp::Application.routes.draw do
 
   get 'denied', to: 'home#denied'
 
+  get 'get_started', to: 'info#get_started'
+
   resources :commitments, only: [:new, :create, :index] do
     get :sponsor, on: :member
   end

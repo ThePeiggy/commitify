@@ -7,7 +7,6 @@ class CommitmentsController < ApplicationController
 
   def create
     @commitment = Commitment.new(commitment_params)
-    binding.pry
 
     respond_to do |format|
       if @commitment.save

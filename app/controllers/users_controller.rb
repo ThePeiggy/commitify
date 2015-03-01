@@ -12,5 +12,6 @@ class UsersController < ApplicationController
 
     @exchange_rate_usd = coinbase.exchange_rates["btc_to_usd"].to_f
     @user = User.find(params[:id])
+    @balance = coinbase.get('/accounts/' + @user.account_id)["account"]["balance"]["amount"].to_f
   end
 end
