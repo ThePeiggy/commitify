@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def coinbase
     @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'])
+    #@coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'], base_uri: "https://api.sandbox.coinbase.com/v1")
   end
 
   def cb_bank
