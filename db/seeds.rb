@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(first_name: 'Pei', last_name: 'Li', email: 'peihongli94@gmail.com', account_id: "529653a1ce21cd9e53000076")
-commitment = Commitment.create(title: "Shave Pei's Head", description: "Pei will commit to shaving his head if he receives the desired sponsorship. All proceeds go to charity.", expiry_date: DateTime.now + 3.days, status: Commitment::PENDING, cost: 0.004, account_id: "54f289b581878d6e9e00005a")
+user = User.create(first_name: 'Pei', last_name: 'Li', email: 'peihongli94@gmail.com', account_id: "54f371c24463dfefac00014a")
+commitment = Commitment.create(title: "Shave Pei's Head", description: "Pei will commit to shaving his head if he receives the desired sponsorship. All proceeds go to charity.", expiry_date: DateTime.now + 3.days, status: Commitment::PENDING, cost: 0.004, account_id: "54f3872a4463dfd5560001a2")
 sponsorship = user.sponsorships.create(sponsorship_type: 'ownership', commitment_id: commitment.id)

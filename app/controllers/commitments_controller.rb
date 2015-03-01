@@ -12,7 +12,7 @@ class CommitmentsController < ApplicationController
       if @commitment.save
         options = { account: { name: "commitment_" + @commitment.id.to_s } }
         response = coinbase.post('/accounts', options)
-        @commitment.update_attributes(account_id: response["account"]["id"], status: Commitment::PENDING, beneficiary_id: @commitment.beneficiary == Commitment::USERS ? nil : "529653a1ce21cd9e53000076")
+        @commitment.update_attributes(account_id: response["account"]["id"], status: Commitment::PENDING, beneficiary_id: @commitment.beneficiary == Commitment::USERS ? nil : "54f371c24463dfefac00014a")
 
         current_user.sponsorships.create(commitment_id: @commitment.id, sponsorship_type: Sponsorship::OWNERSHIP)
         #take collateral
