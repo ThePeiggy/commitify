@@ -1,14 +1,14 @@
 <div class="jumbotron">
   <div class="container-fluid">
     <div class="row top-align">
-      <strong><div class = "names"><%= @user.first_name + ' ' + @user.last_name %> </div></strong>
-      <div class = "userpage">
-        <strong>Registered Email:</strong>
-        <%= @user.email %><br>
-        <br>
-        <%= link_to "Back", '#', class: 'btn btn-large btn-primary' %>
-        <%= link_to "New Commitment", new_commitment_path, class: 'btn btn-large btn-primary' %>
-      </div>
+      <strong><%= @user.first_name + ' ' + @user.last_name %></strong>
+      <br>
+      <strong>Registered Email: </strong><%= @user.email %>
+      <br>
+      <strong data-toggle="tooltip" title="Use this to transfer bitcoins from your Coinbase Wallet">Coinbase Account ID: </strong><%= @user.account_id %>
+      <br>
+      <br>
+      <%= link_to "New Commitment", new_commitment_path, class: 'btn btn-large btn-primary', title: "Make your own commitment and have others sponsor you", data: { toggle: "tooltip" } %>
     </div>
   </div>
 </div>
@@ -19,6 +19,7 @@
       <div class="col-md-8">
         <div class="row top-align">
             <h3><%= commitment.title %></h3>
+            <h5><%= "#{commitment.users.owner.first_name} #{commitment.users.owner.last_name}" %></h5>
         </div>
         <br>
         <div class="row top-align">

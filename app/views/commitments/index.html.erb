@@ -4,6 +4,7 @@
       <div class="col-md-8">
         <div class="row top-align">
             <h3><%= commitment.title %></h3>
+            <h5><%= "#{commitment.users.owner.first_name} #{commitment.users.owner.last_name}" %></h5>
         </div>
         <br>
         <div class="row top-align">
@@ -11,29 +12,29 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="row">
+        <div class="row" title="Commitments must be fulfilled by this date" data-toggle="tooltip" data-placement="left">
           Expiry Date: <%= commitment.expiry_date.strftime("%b %d, %Y") %>
         </div>
-        <div class="row">
+        <div class="row" title="Pending, Ready, Fulfilled, or Failed" data-toggle="tooltip" data-placement="left">
           Status: <%= commitment.status %>
         </div>
-        <div class="row">
+        <div class="row" title="Once this amount is reached, the owner must fulfill the commitment or pay with bitcoins" data-toggle="tooltip" data-placement="left">
           Cost: $<%= '%.2f' % commitment.cost %>
         </div>
         <br>
-        <div class="row" id="num_sponsors_<%= commitment.id %>">
+        <div class="row" id="num_sponsors_<%= commitment.id %>" title="The number of people sponsoring this commitment" data-toggle="tooltip" data-placement="left">
           Sponsors: <%= commitment.sponsor_count %>
         </div>
-        <div class="row" id="money_raised_<%= commitment.id %>">
+        <div class="row" id="money_raised_<%= commitment.id %>" title="The amount of sponsorship received so far" data-toggle="tooltip" data-placement="left">
           Amount Sponsored: $<%= '%.2f' % (commitment.cost_sponsored * @exchange_rate_usd) %>
         </div>
-        <div class="row">
+        <div class="row" title="The amount required to sponsor this commitment" data-toggle="tooltip" data-placement="left">
           Cost of Sponsorship: $<%= '%.2f' % (0.001 * @exchange_rate_usd) %>
         </div>
         <br>
         <div class="row">
           <% cid = commitment.id.to_s %>
-          <%= link_to "Sponsor", '#', remote: true, class: 'btn btn-large btn-success', id: "button_" + cid, path: sponsor_commitment_path(commitment), sponsors_id: "num_sponsors_" + cid, raised_id: "money_raised_" + cid, button_id: "button_" + cid%>
+          <%= link_to "Sponsor", '#', remote: true, class: 'btn btn-large btn-success', id: "button_" + cid, path: sponsor_commitment_path(commitment), sponsors_id: "num_sponsors_" + cid, raised_id: "money_raised_" + cid, button_id: "button_" + cid, title: "Support with a sponsorship. If this commitment is not fulfilled, your donation is returned, and the owner of this commitment will donate to charity.", data: { toggle: 'tooltip', placement: 'right'} %>
         </div>
       </div>
     </div>
