@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def coinbase
-    @coinbase ||= Coinbase::Client.new(ENV['COINBASE_APP_KEY'], ENV['COINBASE_APP_SECRET'])
+    @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'])
   end
 end
