@@ -3,4 +3,6 @@ class Sponsorship < ActiveRecord::Base
   SPONSORSHIP = 'sponsorship'.freeze
   belongs_to :user
   belongs_to :commitment
+
+  validates_uniqueness_of :user_id, scope: [:commitment_id, :sponsorship_type]
 end
