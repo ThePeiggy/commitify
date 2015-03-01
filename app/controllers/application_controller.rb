@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def coinbase
-    @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'], base_uri: "https://api.sandbox.coinbase.com/v1")
+    @coinbase ||= Coinbase::Client.new(COINBASE_CONFIG['COINBASE_APP_KEY'], COINBASE_CONFIG['COINBASE_APP_SECRET'])
   end
 
   def cb_bank
