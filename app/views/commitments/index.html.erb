@@ -20,7 +20,43 @@
         <div class="row">
           Cost: $<%= '%.2f' % commitment.cost %>
         </div>
+        <br>
+        <div class="row" id="num_sponsors_<%= commitment.id %>">
+          Hits: <%= "temp" %>
+        </div>
+        <div class="row" id="money_raised_<%= commitment.id %>">
+          Raised: <%= "temp" %>
+        </div>
+        <br>
+        <div class="row">
+          <%= cid = commitment.id.to_s %>
+          <%= link_to "Sponsor", '#', remote: true, class: 'btn btn-large btn-success', id: "button_" + cid, path: sponsor_commitment_path(commitment), sponsors_id: "num_sponsors_" + cid, raised_id: "money_raised_" + cid, button_id: "button_" + cid%>
+        </div>
       </div>
     </div>
   </div>
 <% end %>
+
+<script>
+  $(function () {
+      $("a[data-remote]").on('click', function () {
+        sponsors_id = $(this).attr("sponsors_id")
+        raised_id = $(this).attr("raised_id")
+        button_id = $(this).attr("button_id")
+        $.ajax({
+              url: $(this).attr("path"),
+              type:"get",
+              dataType:"json",
+              success: function(data) {
+                if (data.success) {
+                  document.getElementById(sponsors_id).innerHTML = "Sponsors: " + data.hits
+                  document.getElementById(raised_id).innerHTML = "Raised: $"// + data.money_raised.toFixed(2)
+                  document.getElementById(button_id).innerHTML = "Sponsor Again"
+                } else {
+                  alert("What? You Failed!")
+                }
+              }
+          });
+      });
+  });
+</script>

@@ -7,7 +7,9 @@ Myapp::Application.routes.draw do
 
   get 'denied', to: 'home#denied'
 
-  resources :commitments, only: [:new, :create, :index]
+  resources :commitments, only: [:new, :create, :index] do
+    get :sponsor, on: :member
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

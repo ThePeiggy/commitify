@@ -1,4 +1,6 @@
 class CommitmentsController < ApplicationController
+  respond_to :json, only: :sponsor
+
   def new
     @commitment = Commitment.new
   end
@@ -24,7 +26,23 @@ class CommitmentsController < ApplicationController
 
   end
 
+  def sponsor
+    respond_with success: true
+    /
+    commitment = Commitment.find(commitment_id_param)
+    if true
+      #cause.add_hit
+      #current_user.add_point
+      respond_with success: true, sponsors: 69, money_raised: 6.9
+    end
+    /
+  end
+
   private
+
+  def commitment_id_param
+    params.require(:id)
+  end
 
   def commitment_params
     params.require(:commitment).permit(:title, :description, :cost)
