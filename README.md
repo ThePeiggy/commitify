@@ -1,2 +1,2 @@
 # launch
-LAUNCH 2015
+Commitify is an app designed to force users to commit to a goal.
